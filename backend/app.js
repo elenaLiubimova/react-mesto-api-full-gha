@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const { errors, Joi, celebrate } = require('celebrate');
 const { urlPattern } = require('./utils/constants');
+const cors = require('cors');
 
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
@@ -12,6 +13,7 @@ const NotFoundError = require('./errors/NotFoundError');
 const { PORT = 3000 } = process.env;
 
 const app = express();
+app.use(cors());
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
