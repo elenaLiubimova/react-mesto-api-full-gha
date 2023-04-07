@@ -1,0 +1,6 @@
+.header__email-and-navigate {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}

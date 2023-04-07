@@ -1,0 +1,10 @@
+.reg-auth-form__button {
+  width: 358px;
+  height: 50px;
+  margin-top: 216px;
+  padding: 0;
+  background: #FFFFFF;;
+  border-radius: 2px;
+
+  cursor: pointer;
+}

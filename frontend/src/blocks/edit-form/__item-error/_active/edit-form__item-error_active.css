@@ -1,0 +1,9 @@
+.edit-form__item-error_active {
+  left: 0;
+  min-height: 40px;
+  
+  color: rgba(255, 0, 0, 1);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+}

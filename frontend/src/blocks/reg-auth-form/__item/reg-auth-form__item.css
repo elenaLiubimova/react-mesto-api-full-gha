@@ -1,0 +1,21 @@
+.reg-auth-form__item {
+  width: 356px;
+  height: 40px;
+  padding: 0;
+  margin: 17px 0 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: black;
+  
+  color: #fff;
+  font-size: 500;
+  line-height: 14px;
+}
+
+.reg-auth-form__item ::placeholder {
+  color: #fff;
+  font-size: 500;
+  line-height: 14px;
+}

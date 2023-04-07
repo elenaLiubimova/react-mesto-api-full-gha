@@ -1,0 +1,6 @@
+.popup__container_type_confirm {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 181px;
+}

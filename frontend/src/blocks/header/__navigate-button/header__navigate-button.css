@@ -1,0 +1,16 @@
+.header__navigate-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: #000;
+
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 489px) {
+  .header__navigate-button {
+    font-size: 14px;
+    padding-right: 30px;
+  } 
+}

@@ -1,0 +1,11 @@
+.header-container {
+  margin: 0 auto;
+  width: 68.75%;
+}
+
+@media screen and (max-width: 489px) {
+  .header-container {
+    width: 100%;
+    margin: 0;
+  }
+}

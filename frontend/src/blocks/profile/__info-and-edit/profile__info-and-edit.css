@@ -1,0 +1,14 @@
+.profile__info-and-edit {
+  flex-grow: 1;
+  display: grid;
+  grid-template-areas: 
+  "title button"
+  "subtitle subtitle";
+  grid-template-columns: max-content max-content;
+}
+
+@media screen and (max-width: 489px) {
+  .profile__info-and-edit {
+    justify-content: center;
+  } 
+}

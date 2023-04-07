@@ -1,0 +1,9 @@
+.card__title-and-like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 22px 15px 22px 21px;
+  border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
+}

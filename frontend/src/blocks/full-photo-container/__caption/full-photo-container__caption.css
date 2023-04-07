@@ -1,0 +1,8 @@
+.full-photo-container__caption {
+  position: absolute;
+  bottom: -25px;
+
+  font-size: 12px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 1);
+}
