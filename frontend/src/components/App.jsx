@@ -200,7 +200,6 @@ const App = () => {
       .changeAvatar(avatar)
       .then((currentUser) => {
         setCurrentUser(currentUser);
-        console.log(currentUser)
         closeAllPopups();
       })
       .catch((error) => console.log(`Ошибка: ${error}`))

@@ -80,7 +80,6 @@ class Api {
   }
 
   changeAvatar(avatar) {
-    console.log(avatar)
     return this._request(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
@@ -90,7 +89,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://api.elenaliubimova.nomoredomains.monster",
   headers: {
     authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
