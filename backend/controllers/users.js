@@ -22,7 +22,7 @@ const login = (req, res, next) => {
       return usr;
     }))
     .then((usr) => {
-      const token = jwt.sign({ _id: usr._id }, 'app-secret', {
+      const token = jwt.sign({ _id: usr._id }, NODE_ENV === 'production' ? JWT_SECRET : 'app-secret', {
         expiresIn: '7d',
       });
       return res.send({ jwt: token });
