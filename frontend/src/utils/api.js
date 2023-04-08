@@ -1,3 +1,5 @@
+import { token } from "./constants";
+
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -42,8 +44,8 @@ class Api {
       headers: this._headers,
       method: "POST",
       body: JSON.stringify({
-        name,
-        link,
+        name: name,
+        link: link,
       }),
     });
   }
@@ -78,6 +80,7 @@ class Api {
   }
 
   changeAvatar(avatar) {
+    console.log(avatar)
     return this._request(`${this._baseUrl}/users/me/avatar`, {
       headers: this._headers,
       method: "PATCH",
@@ -87,9 +90,9 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-54",
+  baseUrl: "http://localhost:3000",
   headers: {
-    authorization: "8a554e8c-b62c-42c8-9826-7b4251a96cc4",
+    authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
   },
 });

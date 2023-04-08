@@ -10,7 +10,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   return card
     .create({ name, link, owner: req.user._id })
-    .then((crd) => res.status(createdStatus).send({ data: crd }))
+    .then((crd) => res.status(createdStatus).send(crd))
     .catch((error) => {
       if (error.name === 'ValidationError') {
         return next(new BadRequestError('Переданы некорректные данные при создании карточки'));
@@ -29,7 +29,7 @@ const deleteCard = (req, res, next) => card
     return card.deleteOne();
   })
   .then((сrd) => {
-    res.send({ сrd });
+    res.send(сrd);
   })
   .catch((error) => {
     if (error.name === 'CastError') {
@@ -40,7 +40,6 @@ const deleteCard = (req, res, next) => card
 
 const getCards = (req, res, next) => card
   .find({})
-  .populate(['owner', 'likes'])
   .then((crds) => res.status(okStatus).send(crds))
   .catch((error) => next(error));
 
@@ -54,7 +53,7 @@ const likeCard = (req, res, next) => card
     if (!crd) {
       return next(new NotFoundError('Карточка не найдена'));
     }
-    return res.send({ data: crd });
+    return res.send(crd);
   })
   .catch((error) => {
     if (error.name === 'CastError') {
@@ -73,7 +72,7 @@ const dislikeCard = (req, res, next) => card
     if (!crd) {
       return next(new NotFoundError('Карточка не найдена'));
     }
-    return res.send({ data: crd });
+    return res.send(crd);
   })
   .catch((error) => {
     if (error.name === 'CastError') {

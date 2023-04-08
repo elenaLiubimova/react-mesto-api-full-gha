@@ -1,4 +1,6 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+import { token } from "./constants";
+
+export const BASE_URL = 'http://localhost:3000';
 
 export function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Ошибка ${res.status}`)
@@ -30,7 +32,7 @@ export const authorize = ( email, password ) => {
   });
 }
 
-export const checkToken = (token) => {
+export const checkToken = () => {
   return request(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {

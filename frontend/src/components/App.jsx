@@ -57,7 +57,7 @@ const App = () => {
   // Обработчик лайка карточки
   function handleCardLike(card) {
     // Проверяем, есть ли уже лайк на карточке
-    const isLiked = card.likes.some((like) => like._id === currentUser._id);
+    const isLiked = card.likes.some((id) => id === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
@@ -86,14 +86,15 @@ const App = () => {
 
   //Функция проверки токена
   function tokenCheck() {
-    if (localStorage.getItem("token")) {
-      const token = localStorage.getItem("token");
+    
+    if (localStorage.getItem("jwt")) {
+      const token = localStorage.getItem("jwt");
       if (token) {
         auth
-          .checkToken(token)
+          .checkToken()
           .then((res) => {
             if (res) {
-              setUserEmail(res.data.email);
+              setUserEmail(res.email);
               setLoggedIn(true);
               navigate("/", { replace: true });
             }
@@ -199,6 +200,7 @@ const App = () => {
       .changeAvatar(avatar)
       .then((currentUser) => {
         setCurrentUser(currentUser);
+        console.log(currentUser)
         closeAllPopups();
       })
       .catch((error) => console.log(`Ошибка: ${error}`))
@@ -224,8 +226,8 @@ const App = () => {
     return auth
       .authorize(email, password)
       .then((data) => {
-        if (data.token) {
-          localStorage.setItem("token", data.token);
+        if (data.jwt) {
+          localStorage.setItem("jwt", data.jwt);
           setLoggedIn(true);
           navigate("/", { replace: true });
           setUserEmail(email);

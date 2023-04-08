@@ -19,10 +19,10 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
   const { currentUser } = useContext(CurrentUserContext);
 
   // Определяем, являемся ли мы владельцем текущей карточки
-  const isOwn = card.owner._id === currentUser._id;
+  const isOwn = card.owner === currentUser._id;
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
-  const isLiked = card.likes.some((like) => like._id === currentUser._id);
+  const isLiked = card.likes.some((id) => id === currentUser._id);
 
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = `like-button ${
@@ -38,7 +38,7 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
           type="button"
           aria-label="Кнопка удаления фото"
         />
-      )}
+      )}      
       <img
         className="card__image"
         src={card.link}
