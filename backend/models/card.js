@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const { urlPattern } = require("../utils/constants");
+const mongoose = require('mongoose');
+const { urlPattern } = require('../utils/constants');
 
 const cardSchema = new mongoose.Schema({
   name: {
@@ -7,11 +7,11 @@ const cardSchema = new mongoose.Schema({
     required: true,
     minlength: [
       2,
-      "Минимальная длина значения поля - 2 символа, сейчас - {VALUE} символов",
+      'Минимальная длина значения поля - 2 символа, сейчас - {VALUE} символов',
     ],
     maxlength: [
       30,
-      "Максимальная длина значения поля - 30 символов, сейчас - {VALUE} символов",
+      'Максимальная длина значения поля - 30 символов, сейчас - {VALUE} символов',
     ],
   },
 
@@ -20,14 +20,14 @@ const cardSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: (url) => urlPattern.test(url),
-      message: "Невалидная ссылка",
+      message: 'Невалидная ссылка',
     },
   },
 
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
-    ref: "user",
+    ref: 'user',
   },
 
   likes: [{
@@ -42,4 +42,4 @@ const cardSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("card", cardSchema);
+module.exports = mongoose.model('card', cardSchema);
