@@ -57,7 +57,7 @@ const App = () => {
   // Обработчик лайка карточки
   function handleCardLike(card) {
     // Проверяем, есть ли уже лайк на карточке
-    const isLiked = card.likes.some((id) => id === currentUser._id);
+    const isLiked = card.likes.some((like) => like._id === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api

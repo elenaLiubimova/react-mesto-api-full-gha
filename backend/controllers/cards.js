@@ -10,6 +10,7 @@ const createCard = (req, res, next) => {
   const { name, link } = req.body;
   return card
     .create({ name, link, owner: req.user._id })
+    .then((crd) => crd.populate('owner'))
     .then((crd) => res.status(createdStatus).send(crd))
     .catch((error) => {
       if (error.name === 'ValidationError') {
@@ -40,6 +41,7 @@ const deleteCard = (req, res, next) => card
 
 const getCards = (req, res, next) => card
   .find({})
+  .populate(['likes', 'owner'])
   .then((crds) => res.status(okStatus).send(crds))
   .catch((error) => next(error));
 
@@ -49,6 +51,7 @@ const likeCard = (req, res, next) => card
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
+  .populate(['likes', 'owner'])
   .then((crd) => {
     if (!crd) {
       return next(new NotFoundError('Карточка не найдена'));
@@ -68,6 +71,7 @@ const dislikeCard = (req, res, next) => card
     { $pull: { likes: req.user._id } },
     { new: true },
   )
+  .populate(['likes', 'owner'])
   .then((crd) => {
     if (!crd) {
       return next(new NotFoundError('Карточка не найдена'));
