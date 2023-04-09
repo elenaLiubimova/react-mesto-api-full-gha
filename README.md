@@ -6,7 +6,7 @@
 
 ## Ссылки на проект
 
-IP 158.160.15.116
+IP 51.250.29.48
 
 Frontend https://elenaliubimova.nomoredomains.monster
 

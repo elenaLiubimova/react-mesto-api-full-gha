@@ -90,7 +90,6 @@ class Api {
 
 export const api = new Api({
   baseUrl: "https://api.elenaliubimova.nomoredomains.monster",
-  // baseUrl: "http://localhost:3000",
   headers: {
     authorization: `Bearer ${token}`,
     "Content-Type": "application/json",

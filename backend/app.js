@@ -12,23 +12,9 @@ const NotFoundError = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
-// const options = {
-//   origin: [
-//     'https://elenaliubimova.nomoredomains.monster',
-//     'http://elenaliubimova.nomoredomains.monster',
-//     'http://localhost:3001',
-//     'http://localhost:3000',
-//   ],
-//   methods: ['GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'],
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-//   allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
-//   credentials: true,
-// };
 
 const app = express();
 app.use(cors());
-// app.use('*', cors(options));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
